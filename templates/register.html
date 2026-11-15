@@ -1,0 +1,73 @@
+
+{% extends "base.html" %}
+
+{% block title %}Register | Expense Tracker{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-card">
+
+        <div class="auth-logo">₹</div>
+
+        <h2>Create Account</h2>
+        <p class="auth-subtitle">Start managing your money today</p>
+
+        <form action="/register" method="POST" id="registerForm">
+
+            <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" name="name"
+                       class="form-control"
+                       placeholder="Enter your full name"
+                       autocomplete="name"
+                       required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" name="email"
+                       class="form-control"
+                       placeholder="Enter your email"
+                       autocomplete="email"
+                       required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" name="password"
+                       id="registerPassword"
+                       class="form-control"
+                       placeholder="Create a password"
+                       minlength="8"
+                       autocomplete="new-password"
+                       required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Confirm Password</label>
+                <input type="password" name="confirm_password"
+                       id="confirmPassword"
+                       class="form-control"
+                       placeholder="Confirm your password"
+                       autocomplete="new-password"
+                       required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 auth-button">
+                Create Account
+            </button>
+
+        </form>
+
+        <p class="auth-footer">
+            Already have an account?
+            <a href="/login">Login</a>
+        </p>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/validation.js') }}"></script>
+{% endblock %}
